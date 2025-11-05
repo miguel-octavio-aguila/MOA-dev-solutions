@@ -85,9 +85,7 @@ function App() {
                         </div>
                     </section>
 
-                    <section className='features' id='features' ref={featuresRef}>
-                        <Features />
-                    </section>
+                    <Features ref={featuresRef} />
                 </main>
 
                 <Footer />
