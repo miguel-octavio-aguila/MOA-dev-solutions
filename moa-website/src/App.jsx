@@ -30,7 +30,7 @@ function App() {
                 background: 'black',
             }, {
                 scrollTrigger: {
-                    trigger: ".header",
+                    trigger: headerRef.current,
                     start: "150dvh top",
                     end: "170dvh 50dvh",
                     toggleActions: "play none reset none",
@@ -72,10 +72,21 @@ function App() {
             
             gsap.to(changeSections, {
                 scrollTrigger: {
-                    trigger: featuresRef.current, // <-- ¡Usa la ref! Es más seguro
+                    trigger: featuresRef.current,
                     start: "7% top",
-                    onEnter: () => gsap.to(changeSections, { color: "black", duration: 0.2 }),
-                    onLeaveBack: () => gsap.to(changeSections, { color: "var(--font-color-tertiary)", duration: 0.2 }),
+                    markers: false, // Cambia a true para debug
+                    onEnter: () => {
+                        gsap.to(changeSections, { 
+                            color: "black", 
+                            duration: 0.2 
+                        });
+                    },
+                    onLeaveBack: () => {
+                        gsap.to(changeSections, { 
+                            color: "var(--font-color-tertiary)", 
+                            duration: 0.2 
+                        });
+                    },
                 },
             });
         }, wrapperRef) // -> context for clean behavior
