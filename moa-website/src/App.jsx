@@ -18,6 +18,7 @@ function App() {
     const imgScaleRef = useRef(null)
     const featuresRef = useRef(null)
     const imgTriggerRef = useRef(null)
+    const headerRef = useRef(null)
 
     // animations
     useLayoutEffect(() => {
@@ -65,6 +66,18 @@ function App() {
                 zIndex: -1,
                 ease: "none",
             });
+
+            // Apuntamos a los elementos .change-section DENTRO del headerRef
+            const changeSections = gsap.utils.toArray('.change-section', headerRef.current);
+            
+            gsap.to(changeSections, {
+                scrollTrigger: {
+                    trigger: featuresRef.current, // <-- ¡Usa la ref! Es más seguro
+                    start: "7% top",
+                    onEnter: () => gsap.to(changeSections, { color: "black", duration: 0.2 }),
+                    onLeaveBack: () => gsap.to(changeSections, { color: "var(--font-color-tertiary)", duration: 0.2 }),
+                },
+            });
         }, wrapperRef) // -> context for clean behavior
 
         // -> clean behavior
@@ -74,7 +87,7 @@ function App() {
     return (
         <>
             <div className='body-wrapper' ref={wrapperRef}>
-                <Header />
+                <Header ref={headerRef} />
 
                 <main>
                     <Presentation />
