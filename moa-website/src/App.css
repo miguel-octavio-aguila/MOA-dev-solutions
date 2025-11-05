@@ -84,9 +84,16 @@
     left: 0;
     width: 100dvw;
     height: 100dvh;
-    z-index: 1;
-    pointer-events: none;
-    overflow: hidden;
+    z-index: 1; /* Detrás del contenido */
+    pointer-events: none; /* Evita que interfiera con clics */
+}
+
+.spline-wrapper spline-viewer {
+    width: 100dvw;
+    height: 130dvh;
+    display: block;
+    opacity: 0.4;
+    scale: 1.4;
 }
 
 .presentation-container {
@@ -141,7 +148,7 @@
     color: var(--font-color-primary);
     margin-top: -62vh;        /* súbela detrás de la curva */
     padding-top: 18vh;        /* recupera el espacio interno */
-    z-index: -1;
+    /* z-index: -1; */
     min-height: 110dvh;
 }
 
