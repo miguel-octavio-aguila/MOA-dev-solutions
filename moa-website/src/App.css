@@ -26,14 +26,14 @@
     position: relative;
 }
 
-.logo-navbar {
+.navbar-brand.logo-navbar.logo-navbar {
     font-family: var(--font-clash-display);
     font-size: 40px;
     text-decoration: none;
     color: var(--font-color-tertiary);
 }
 
-.nav-a {
+.nav-link.nav-a {
     color: var(--font-color-tertiary);
     font-family: var(--font-clash-display);
     font-size: 20px;
@@ -88,7 +88,7 @@
     pointer-events: none; /* Evita que interfiera con clics */
 }
 
-.spline-wrapper spline-viewer {
+.spline-wrapper > * {
     width: 100dvw;
     height: 130dvh;
     display: block;
