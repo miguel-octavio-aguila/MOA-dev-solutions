@@ -63,8 +63,8 @@ function App() {
                     end: "top top",
                     scrub: true,
                 },
-                zIndex: -1,
                 ease: "none",
+                zIndex: -1,
             });
 
             // Apuntamos a los elementos .change-section DENTRO del headerRef
